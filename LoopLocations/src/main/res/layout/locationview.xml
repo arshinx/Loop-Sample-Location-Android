@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listcontainer"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp"
+    android:weightSum="1">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/RelativeLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <!-- icon -->
+        <ImageView
+            android:id="@+id/locationicon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/home"
+            android:layout_alignParentLeft="true"/>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/RelativeLayout05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/locationicon"
+            android:orientation="vertical"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtlatlong"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:textSize="12sp"
+                android:textColor="#000000"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/lastUpdatedtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:textColor="#0000A0"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/visits"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:textColor="#008000"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
