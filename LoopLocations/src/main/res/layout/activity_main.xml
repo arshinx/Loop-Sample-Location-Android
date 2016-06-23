@@ -16,12 +16,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:paddingLeft="10dp"
-            android:text="Enable Location Tracking?"
+            android:paddingRight="10dp"
+            android:text="@string/enable_location_observation"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="#ffffff"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <Switch
@@ -29,7 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="" />
     </RelativeLayout>
@@ -38,15 +42,14 @@
         android:id="@+id/txtcurrentlocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
         android:paddingBottom="10dp"
         android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         android:paddingTop="10dp"
-        android:text="Unable to determine current location!"
+        android:text="@string/unable_to_determine_current_location"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#000000"
-        android:textSize="14dp" />
+        android:textSize="14sp" />
 
 
     <RelativeLayout
@@ -62,5 +65,4 @@
             android:layout_height="match_parent"
             android:listSelector="@color/colorPrimary" />
     </RelativeLayout>
-    >
 </LinearLayout>

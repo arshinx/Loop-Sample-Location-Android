@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Loop Locations</string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="userid">UserId</string>
+    <string name="loop_enabled">Location observation is on</string>
+    <string name="turn_on_loop">Turn on location observation</string>
+    <string name="enable_location_observation">Enable location observation?</string>
+    <string name="unable_to_determine_current_location">Unable to determine current location!</string>
+    <string name="settings">Settings</string>
 </resources>

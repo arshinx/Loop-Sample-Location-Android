@@ -20,6 +20,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import ms.loop.loopsdk.core.LoopSDK;
 import ms.loop.loopsdk.profile.Drive;
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         if (LoopSDK.isInitialized()) {
             LoopLocation loopLocation = LoopLocationProvider.getLastLocation();
             if (loopLocation == null) return;
-            currentLocationText.setText(String.format("Current Location: %.5f, %.5f", loopLocation.getLatitude(), loopLocation.getLongitude()));
+            currentLocationText.setText(String.format(Locale.US, "Current Location: %.5f, %.5f", loopLocation.getLatitude(), loopLocation.getLongitude()));
         }
     }
 
@@ -151,10 +152,10 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         if (isLocationTurnedOn()) {
-            locationText.setText("Location Tracking Enabled!");
+            locationText.setText(R.string.loop_enabled);
             locationSwitch.setChecked(true);
         } else {
-            locationText.setText("Enable Location Tracking!");
+            locationText.setText(R.string.turn_on_loop);
             locationSwitch.setChecked(false);
         }
 
