@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 import ms.loop.loopsdk.core.LoopSDK;
 
 public class SettingActivity extends AppCompatActivity {
@@ -22,7 +24,7 @@ public class SettingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         txtUserId = (TextView)this.findViewById(R.id.userid);
-        txtUserId.setText("UserId: "+ LoopSDK.userId);
+        txtUserId.setText(String.format(Locale.US, "UserId: %s", LoopSDK.userId));
 
         txtUserId.setOnClickListener(new View.OnClickListener() {
             @Override

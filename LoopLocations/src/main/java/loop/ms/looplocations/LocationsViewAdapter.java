@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import ms.loop.loopsdk.profile.KnownLocation;
 import ms.loop.loopsdk.profile.Label;
@@ -35,7 +36,7 @@ public class LocationsViewAdapter extends ArrayAdapter<KnownLocation> {
     Context context;
     int layoutResourceId;
     List<KnownLocation> locations = new ArrayList<>();
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("EEE h:mm a (MM/dd)");
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("EEE h:mm a (MM/dd)", Locale.US);
 
     public LocationsViewAdapter(Context context, int layoutResourceId, List<KnownLocation> data) {
         super(context, layoutResourceId, data);
@@ -98,10 +99,10 @@ public class LocationsViewAdapter extends ArrayAdapter<KnownLocation> {
         }
         holder.txtTitle.setText(locationLabel);
         holder.locationIcon.setImageResource(locationLabel.equalsIgnoreCase("work")? R.drawable.work : R.drawable.home);
-        holder.txtLocationInfo.setText(String.format("Latitude: %.3f, Longitutde: %.3f", location.latDegrees, location.longDegrees));
-        holder.txtLastVisited.setText(String.format("Updated on %s", dateFormat.format(location.updatedAt)));
+        holder.txtLocationInfo.setText(String.format(Locale.US, "Latitude: %.3f, Longitutde: %.3f", location.latDegrees, location.longDegrees));
+        holder.txtLastVisited.setText(String.format(Locale.US, "Updated on %s", dateFormat.format(location.updatedAt)));
         holder.txtVisit.setText(getVisitInfo(location));
-        holder.txtTotalScore.setText(String.format("Score: %.3f Visits: %d", location.score, location.visits.size()));
+        holder.txtTotalScore.setText(String.format(Locale.US, "Score: %.3f Visits: %d", location.score, location.visits.size()));
         row.setClickable(true);
 
         final String locationLabelTemp = locationLabel;
@@ -109,7 +110,7 @@ public class LocationsViewAdapter extends ArrayAdapter<KnownLocation> {
             @Override
             public void onClick(View view) {
 
-            Uri gmmIntentUri = Uri.parse(String.format("geo:0,0?q=%f,%f(%s)", location.latDegrees, location.longDegrees, locationLabelTemp));
+            Uri gmmIntentUri = Uri.parse(String.format(Locale.US, "geo:0,0?q=%f,%f(%s)", location.latDegrees, location.longDegrees, locationLabelTemp));
             Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
             mapIntent.setPackage("com.google.android.apps.maps");
             if (mapIntent.resolveActivity(context.getPackageManager()) != null) {
@@ -133,7 +134,7 @@ public class LocationsViewAdapter extends ArrayAdapter<KnownLocation> {
         if (knownLocation.hasVisits()) {
             Visits visits = knownLocation.visits;
             Visit lastVisit = visits.getVisits().get(0);
-            return String.format("Last visited on %s for %s", dateFormat.format(new Date(lastVisit.startTime)), getVisitDuration(lastVisit));
+            return String.format(Locale.US, "Last visited on %s for %s", dateFormat.format(new Date(lastVisit.startTime)), getVisitDuration(lastVisit));
         }
         return "No visits yet!";
     }
@@ -147,7 +148,7 @@ public class LocationsViewAdapter extends ArrayAdapter<KnownLocation> {
         diff[1] = (diffInSeconds = (diffInSeconds / 60)) >= 60 ? diffInSeconds % 60 : diffInSeconds;
         diff[0] = (diffInSeconds = (diffInSeconds / 60)) >= 24 ? diffInSeconds % 24 : diffInSeconds;
 
-        return String.format(
+        return String.format(Locale.US,
                 "%s%d:%s%d:%s%d",
                 diff[0] < 9 ? "0" : "",
                 diff[0],
